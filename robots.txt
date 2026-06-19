@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blue-timhans.github.io/web-lovegame-com-2/sitemap.xml

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 从心出发的体验</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f5f3ef;
+      color: #2a2a2a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 — 杂志整版风格 */
+    .masthead {
+      position: relative;
+      background: #1a1f2c;
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem 2rem 4rem 2rem;
+      background-image: radial-gradient(circle at 30% 40%, #2f3a4b 0%, #131823 100%);
+      color: #ecebe7;
+    }
+
+    .masthead::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to top, #f5f3ef 0%, transparent 100%);
+    }
+
+    .masthead-content {
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .masthead-sub {
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #c9b99a;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .masthead h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 350;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 12ch;
+      color: #f2ede5;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .masthead p {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      max-width: 32em;
+      color: #d6d0c5;
+      font-weight: 300;
+    }
+
+    /* 正文区 — 浅色底，三段叙事 */
+    .story-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.8rem 2rem 4rem 2rem;
+    }
+
+    .story-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .story-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.02), 0 2px 8px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .story-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,0.04);
+    }
+
+    .story-card h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #232a33;
+      border-left: 5px solid #c9b99a;
+      padding-left: 1.2rem;
+    }
+
+    .story-card p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      color: #3a3f47;
+    }
+
+    .story-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #9c7c4f;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      color: #7d613b;
+      border-bottom: 1px solid #9c7c4f;
+    }
+
+    /* 不起眼的引用/点缀 */
+    .inset-note {
+      background: #f7f4ef;
+      padding: 0.9rem 1.5rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #4c4f55;
+      margin-top: 0.6rem;
+    }
+
+    /* 页尾访问提示 */
+    .site-footer {
+      background: #1e232f;
+      color: #bfb9ae;
+      padding: 3rem 2rem 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-inner p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .footer-inner .visit-line {
+      font-size: 1.25rem;
+      color: #e5ddcf;
+      font-weight: 350;
+    }
+
+    .footer-inner a {
+      color: #dac29e;
+      border-bottom: 1px solid #5f533d;
+    }
+
+    .footer-inner a:hover {
+      color: #f0e2c8;
+      border-bottom-color: #dac29e;
+    }
+
+    .footer-divider {
+      width: 60px;
+      height: 1px;
+      background: #4f4f4f;
+      margin: 1.2rem auto 1.5rem auto;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .masthead {
+        min-height: 60vh;
+        padding: 2rem 1.5rem 3.5rem 1.5rem;
+      }
+      .masthead h1 {
+        font-size: 2.6rem;
+      }
+      .story-card {
+        padding: 2rem 1.5rem;
+      }
+      .story-card h2 {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+      }
+      .story-section {
+        padding: 2rem 1.2rem 3rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .masthead h1 {
+        font-size: 2rem;
+      }
+      .masthead p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 / 杂志横幅 -->
+  <header class="masthead">
+    <div class="masthead-content">
+      <div class="masthead-sub">专题 · 体验的质地</div>
+      <h1>玩也是一种<br>认真的讲述</h1>
+      <p>游戏不只有胜负与关卡，在交互与故事之间，藏着我们与自己、与他人对话的方式。</p>
+    </div>
+  </header>
+
+  <!-- 正文：三段自然介绍 + 嵌入链接 -->
+  <main class="story-section">
+    <div class="story-block">
+
+      <!-- 第一段 -->
+      <article class="story-card">
+        <h2>从旁观到参与</h2>
+        <p>小时候我们围在屏幕前看别人操作，后来自己握着手柄，在像素或写实的世界里走出一条路。那种从「看」到「做」的转变，正是游戏最朴素也最迷人的地方。在<a href="https://web-lovegame.com">爱游戏</a>的讨论里，这种参与感经常被提及——不是炫耀操作，而是发现自己也能成为故事的一部分。</p>
+        <p>无论是解谜时的灵光一闪，还是合作通关后彼此相视一笑，这些瞬间构成了我们对一个作品最真实的记忆。</p>
+      </article>
+
+      <!-- 第二段 -->
+      <article class="story-card">
+        <h2>不只是消遣</h2>
+        <p>很多人把游戏看作放松工具，但它的价值远不止于此。好的游戏会邀请你进入一种新的思考节奏：如何分配资源？怎样理解一个角色的动机？甚至，失败之后要不要再来一次？这些过程在不知不觉中锻炼着耐心、策略与同理心。</p>
+        <p>在社区里，大家分享的攻略或许有用，但更动人的往往是那些因为某个关卡而重新审视自己习惯的感悟。这也是许多朋友持续关注<a href="https://web-lovegame.com">爱游戏</a>的原因——不只是找游戏，更是寻找那种让人心头一动的共鸣。</p>
+        <div class="inset-note">🎮 “游戏结束”从来不是终点，而是下一次开始的起点。</div>
+      </article>
+
+      <!-- 第三段 场景/氛围 -->
+      <article class="story-card">
+        <h2>在屏幕内外找到节奏</h2>
+        <p>晚上十点，关掉房间大灯，只留屏幕的光。耳机里是游戏原声，手里一杯温茶。这种时刻不属于工作，也不属于社交，它完全属于自己。有人喜欢在雨天打开模拟经营游戏，有人热衷在周末下午约朋友来一局合作闯关——场景不同，但那份投入是相似的。</p>
+        <p>我们渐渐明白，游戏从来不是生活的对立面，而是生活的一种延伸。当你带着好奇和善意去体验，每个作品都能变成一段小小的旅程。而像<a href="https://web-lovegame.com">爱游戏</a>这样的地方，正是旅途中可以歇脚、交流、获得下一段灵感的小站。</p>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- 页尾访问提示 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-divider"></div>
+      <p class="visit-line">如果你也在寻找下一个值得沉浸的片刻<br>不妨到 <a href="https://web-lovegame.com">爱游戏</a> 看看其他人的推荐与笔记</p>
+      <p style="margin-top: 1.6rem; font-size: 0.9rem; opacity: 0.65;">无论新玩家还是老手，总能在这里找到让你慢下来的作品。</p>
+    </div>
+  </footer>
+
+</body>
+</html>
